@@ -1,3 +1,4 @@
+![GUI](https://github.com/tomemme/focusedReader/blob/main/Focused%20Reader.png)
 # Focused Reader Desktop
 Focused Reader Desktop is an offline-capable PDF viewer built with Electron, featuring a customizable overlay to enhance reading focus. Designed to assist users with concentration challenges—such as those stemming from trauma or distractions—it allows you to adjust the visible portion of a PDF and control overlay transparency.
 
