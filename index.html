@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' data:;">    <script type="module" src="pdf.mjs"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Focused Reader Desktop</title>
+</head>
+<body>
+    <input type="file" id="pdfUpload" accept=".pdf">
+    <canvas id="pdfCanvas"></canvas>
+    <script src="renderer.js"></script>
+    <button id="prevPage">Previous Page</button>
+    <span id="pageInfo">Page 1 of 1</span>
+    <button id="nextPage">Next Page</button>
+</body>
+</html>
