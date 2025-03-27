@@ -3,16 +3,16 @@
 Focused Reader Desktop is an offline-capable PDF viewer built with Electron, featuring a customizable overlay to enhance reading focus. Designed to assist users with concentration challenges—such as those stemming from trauma or distractions—it allows you to adjust the visible portion of a PDF and control overlay transparency.
 
 ## Features
--Custom Overlay: A semi-transparent overlay that highlights a user-defined portion of the PDF, adjustable via mouse and keyboard controls.
--Multi-Page Navigation: Navigate through PDF pages with "Previous" and "Next" buttons integrated into the overlay.
--Offline Functionality: Works without an internet connection, ideal for travel or remote use.
--Lightweight Design: Built to run efficiently on desktop systems using Electron and PDF.js.
+- Custom Overlay: A semi-transparent overlay that highlights a user-defined portion of the PDF, adjustable via mouse and keyboard controls.
+- Multi-Page Navigation: Navigate through PDF pages with "Previous" and "Next" buttons integrated into the overlay.
+- Offline Functionality: Works without an internet connection, ideal for travel or remote use.
+- Lightweight Design: Built to run efficiently on desktop systems using Electron and PDF.js.
 
 ## Technologies Used
--Electron: Framework for creating cross-platform desktop applications with web technologies.
--Node.js: Runtime environment for executing JavaScript on the desktop.
--PDF.js: JavaScript library for rendering PDF files within the app.
--HTML/CSS/JavaScript: Core technologies for the user interface and interactivity.
+- Electron: Framework for creating cross-platform desktop applications with web technologies.
+- Node.js: Runtime environment for executing JavaScript on the desktop.
+- PDF.js: JavaScript library for rendering PDF files within the app.
+- HTML/CSS/JavaScript: Core technologies for the user interface and interactivity.
 
 ## Installation
 To set up and run Focused Reader Desktop locally, follow these steps:
