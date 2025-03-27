@@ -1,26 +1,26 @@
 # Focused Reader Desktop
 Focused Reader Desktop is an offline-capable PDF viewer built with Electron, featuring a customizable overlay to enhance reading focus. Designed to assist users with concentration challenges—such as those stemming from trauma or distractions—it allows you to adjust the visible portion of a PDF and control overlay transparency.
 
-#Features
+## Features
 -Custom Overlay: A semi-transparent overlay that highlights a user-defined portion of the PDF, adjustable via mouse and keyboard controls.
 -Multi-Page Navigation: Navigate through PDF pages with "Previous" and "Next" buttons integrated into the overlay.
 -Offline Functionality: Works without an internet connection, ideal for travel or remote use.
 -Lightweight Design: Built to run efficiently on desktop systems using Electron and PDF.js.
 
-#Technologies Used
+## Technologies Used
 -Electron: Framework for creating cross-platform desktop applications with web technologies.
 -Node.js: Runtime environment for executing JavaScript on the desktop.
 -PDF.js: JavaScript library for rendering PDF files within the app.
 -HTML/CSS/JavaScript: Core technologies for the user interface and interactivity.
 
-#Installation
+## Installation
 To set up and run Focused Reader Desktop locally, follow these steps:
 
-#Prerequisites
+## Prerequisites
 Node.js: Version 14.x or higher (includes npm).
 Git: For cloning the repository.
 
-#Steps
+## Steps
 -Clone the Repository:
 git clone https://github.com/tomemme/focused_reader_desktop.git
 cd focused_reader_desktop
@@ -33,7 +33,7 @@ bash
 npm start
 This launches the Electron app.
 
-#Usage
+## Usage
 -Open a PDF:
 Click the file input button to select a PDF from your local system.
 The first page will load automatically with the overlay applied.
@@ -46,7 +46,7 @@ Reveal Height: Use the mouse wheel, arrow keys (Up/Down), or click with the 'R' 
 Transparency: Press Arrow Left/Right to decrease/increase the overlay’s opacity.
 Scroll Lock: Press 'S' or use mouse button 5 to toggle scroll mode.
 
-#Project Structure
+## Project Structure
 focused_reader_desktop/
 ├── main.js          # Electron main process script
 ├── renderer.js      # Renderer process script for PDF rendering and overlay
@@ -57,11 +57,11 @@ focused_reader_desktop/
 ├── package.json     # Project metadata and dependencies
 └── .gitignore       # Excludes node_modules and other unnecessary files
 
-#Contributing
+## Contributing
 Feel free to fork this repository, make improvements, and submit pull requests. Issues or suggestions can be reported via GitHub Issues.
-#License
+## License
 This project is unlicensed—feel free to use, modify, and distribute it as you see fit.
-#Acknowledgments
+## Acknowledgments
 Built with inspiration from personal experiences to aid focused reading.
 Thanks to the Electron and PDF.js communities for their awesome tools.
 
