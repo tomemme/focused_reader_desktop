@@ -1,4 +1,4 @@
-const { app, BroserWindow, BrowserView, BrowserWindow } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
 function createWindow() {
@@ -6,21 +6,28 @@ function createWindow() {
         width: 800,
         height: 600,
         webPreferences: {
-            nodeIntegration: true, //allow node.js in renderer
-            contextIsolation: false // simplfy for this example
+            contextIsolation: true,
+            nodeIntegration: false
         }
     });
-    win.loadFile('index.html');
-    win.webContents.openDevTools(); // Add this line
-    //win.setMenuBarVisibility(false); // optional: hide default menu
+
+    win.loadFile(path.join(__dirname, 'index.html'));
+
+    win.webContents.on('console-message', (_event, level, message, line, sourceId) => {
+        console.log(`[renderer:${level}] ${sourceId}:${line} ${message}`);
+    });
 }
 
 app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit();
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 });
 
 app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
+    }
 });

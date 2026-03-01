@@ -1,5 +1,24 @@
 // renderer.js
 (async () => {
+    function showInitializationError(message) {
+        const applyMessage = () => {
+            const statusMessage = document.getElementById('statusMessage');
+            if (!statusMessage) {
+                return;
+            }
+
+            statusMessage.textContent = message;
+            statusMessage.classList.add('error');
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', applyMessage, { once: true });
+            return;
+        }
+
+        applyMessage();
+    }
+
     try {
         // Load pdfjs-dist dynamically since it's an ES module
         const pdfjsLib = await import('./pdf.mjs');
@@ -16,8 +35,14 @@
         let pageNum = 1;      // Current page number
         let pageCount = 0;    // Total number of pages
 
-        // Wait for DOM to load before setting up event listeners
-        document.addEventListener('DOMContentLoaded', () => {
+        function initializeViewer() {
+            const statusMessage = document.getElementById('statusMessage');
+
+            function setStatus(message, isError = false) {
+                statusMessage.textContent = message;
+                statusMessage.classList.toggle('error', isError);
+            }
+
             // Create the overlay with classes instead of inline styles
             function createOverlay() {
                 if (overlay) return;
@@ -151,6 +176,7 @@
             document.getElementById('pdfUpload').addEventListener('change', (e) => {
                 const file = e.target.files[0];
                 if (file) {
+                    setStatus(`Loading ${file.name}...`);
                     const reader = new FileReader();
                     reader.onload = function(event) {
                         const pdfData = event.target.result;
@@ -161,9 +187,14 @@
                             pageNum = 1; // Start on the first page
                             renderPage(pageNum); // Render the initial page
                             createOverlay();
+                            setStatus(`Loaded ${file.name}`);
                         }).catch(error => {
                             console.error('Error loading PDF:', error);
+                            setStatus(`Failed to load PDF: ${error.message}`, true);
                         });
+                    };
+                    reader.onerror = function() {
+                        setStatus('Failed to read the selected file.', true);
                     };
                     reader.readAsArrayBuffer(file);
                 }
@@ -217,9 +248,16 @@
                     updateOverlay();
                 }
             });
-        });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeViewer, { once: true });
+        } else {
+            initializeViewer();
+        }
 
         } catch (error) {
             console.error('Failed to load pdfjs-dist:', error);
+            showInitializationError(`Failed to initialize viewer: ${error.message}`);
         }
 })();
