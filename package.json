@@ -7,8 +7,5 @@
   },
   "devDependencies": {
     "electron": "^31.0.0"
-  },
-  "dependencies": {
-    "pdfjs-dist": "^5.0.375"
   }
 }
